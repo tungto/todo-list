@@ -10,11 +10,11 @@ const task_reducer = (state, action) => {
     return { ...state, tasks: [...state.tasks, action.payload] };
   }
   if (action.type === Types.REMOVE_TASK) {
-    console.log('check');
+    // console.log('check');
     const newTaskList = state.tasks.filter(
       (task) => task.id !== action.payload
     );
-    console.log(typeof action.payload);
+    // console.log(typeof action.payload);
     return { ...state, tasks: newTaskList };
   }
 
@@ -25,7 +25,7 @@ const task_reducer = (state, action) => {
   }
 
   if (action.type === Types.UPDATE_TASK) {
-    console.log('update reducer');
+    // console.log('update reducer');
     const updatedTaskIndex = findTaskIndex(state.tasks, action.payload);
     const updatedTaskList = [...state.tasks];
     updatedTaskList[updatedTaskIndex] = action.payload;
@@ -40,10 +40,10 @@ const task_reducer = (state, action) => {
     const updatedTaskList = state.tasks.map((task) => {
       if (task.id === action.payload) {
         if (!task.isSelected) {
-          console.log('add');
+          // console.log('add');
           updatedselectedItems += 1;
         } else {
-          console.log('subtract');
+          // console.log('subtract');
           updatedselectedItems -= 1;
         }
         return { ...task, isSelected: !task.isSelected };
@@ -60,7 +60,7 @@ const task_reducer = (state, action) => {
 
   if (action.type === Types.REMOVE_SELECTED_TASKS) {
     const updatedTaskList = state.tasks.filter((task) => !task.isSelected);
-    console.log(updatedTaskList);
+    // console.log(updatedTaskList);
     return { ...state, tasks: updatedTaskList, selectedItems: 0 };
   }
 
@@ -77,7 +77,7 @@ const task_reducer = (state, action) => {
       return task.title.toLowerCase().startsWith(text);
     });
 
-    console.log('filter taks');
+    // console.log('filter taks');
     return {
       ...state,
       filtered_tasks: searchResults,

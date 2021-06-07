@@ -6,6 +6,7 @@ import { randomID } from '../../ultils/helpers';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { BsCalendar } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 
 const initialState = {
   id: null,
@@ -33,10 +34,10 @@ const TaskForm = (props) => {
       setstate(props.task);
       setValue('title', props.task.title);
     }
-  }, [props.task, isEditing]);
+  }, [props.task, isEditing, setValue]);
 
   const submitForm = () => {
-    console.log('check');
+    // console.log('check');
     if (isEditing) {
       updateTask(state);
       props.setIsEditing(false);
@@ -104,6 +105,15 @@ const TaskForm = (props) => {
       </form>
     </FormContainer>
   );
+};
+
+TaskForm.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  priority: PropTypes.string,
+  dueDate: PropTypes.instanceOf(Date),
+  isSelected: PropTypes.bool,
 };
 
 const FormContainer = styled.div`

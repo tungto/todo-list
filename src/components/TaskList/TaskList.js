@@ -2,8 +2,10 @@ import React from 'react';
 import { useTaskContext } from '../../context/task_context';
 import TaskItem from '../TaskItem/TaskItem';
 import styled from 'styled-components';
+import BuldAction from '../BuldAction/BuldAction';
 const TaskList = () => {
-  const { filtered_tasks } = useTaskContext();
+  const { filtered_tasks, selectedItems } = useTaskContext();
+
   if (filtered_tasks.length < 1) {
     return <h1>No task found</h1>;
   }
@@ -12,6 +14,7 @@ const TaskList = () => {
       {filtered_tasks.map((task, index) => {
         return <TaskItem key={index} {...task} />;
       })}
+      {selectedItems > 0 && <BuldAction />}
     </TaskListContainer>
   );
 };

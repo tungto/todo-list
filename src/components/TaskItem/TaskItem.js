@@ -3,10 +3,10 @@ import TaskForm from '../TaskForm/TaskForm';
 import { useTaskContext } from '../../context/task_context';
 import styled from 'styled-components';
 
-const TaskItem = (task) => {
+const TaskItem = (props) => {
   const { removeTask, selectTask } = useTaskContext();
   const [isEditing, setIsEditing] = useState(false);
-  const { title, id, isSelected } = task;
+  const { title, id, isSelected } = props;
 
   return (
     <TaskItemContainer className='task-container'>
@@ -35,7 +35,7 @@ const TaskItem = (task) => {
       </div>
       {isEditing && (
         <TaskForm
-          task={task}
+          task={props}
           isEditing={isEditing}
           setIsEditing={setIsEditing}
         />
