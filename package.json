@@ -1,6 +1,6 @@
 {
-  "homepage": ".https://tungto.github.io/todo-list",
-  "name": "todo-app",
+  "homepage": "https://tungto.github.io/todo-list",
+  "name": "todo-list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
