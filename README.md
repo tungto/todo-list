@@ -4,6 +4,7 @@
 
 ### file structure
 
+```
 src
 |** assets
 | |** images
@@ -19,17 +20,12 @@ src
 |** customed-fields
 |
 |** reducers
-|
-|** components
-| |** PhotoList
-| |** PhotoCard
-| |** PhotoForm
-|
 |** pages
-| |** PhotoCard
-| |\*\* PhotoForm
+| |** HomePage
+| |** AddTaskItemPage
 |
-|\*\* ultils
+|** ultils
+```
 
 ### Features
 

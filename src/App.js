@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import HomePage from './pages/HomePage/HomePage';
+import AddTaskItemPage from './pages/AddTaskItemPage/AddTaskItemPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <BrowserRouter>
+        <Route
+          path='/'
+          component={({ match }) => <HomePage match={match} />}
+          exact={true}
+        />
+        <Route
+          path='/add'
+          component={({ match, history }) => (
+            <AddTaskItemPage match={match} history={history} />
+          )}
+          exact={true}
+        />
+      </BrowserRouter>
     </div>
   );
 }
