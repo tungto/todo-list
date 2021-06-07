@@ -74,7 +74,7 @@ const task_reducer = (state, action) => {
     const tempTasks = [...state.tasks];
     const { text } = state.filters;
     const searchResults = tempTasks.filter((task) => {
-      return task.title.toLowerCase().startsWith(text);
+      return task.title.toLowerCase().startsWith(text.toLowerCase());
     });
 
     // console.log('filter taks');
