@@ -20,8 +20,6 @@ const Header = () => {
 };
 
 const NavContainer = styled.div`
-  padding: 2rem;
-
   .nav-links {
     display: flex;
     justify-content: center;
@@ -35,6 +33,9 @@ const NavContainer = styled.div`
         border-bottom: 1px solid var(--clr-black);
       }
     }
+  }
+  @media (min-width: 800px) {
+    padding: 2rem;
   }
 `;
 export default Header;

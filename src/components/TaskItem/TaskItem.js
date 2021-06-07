@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const TaskItem = (task) => {
   const { removeTask, selectTask } = useTaskContext();
   const [isEditing, setIsEditing] = useState(false);
-  const { title, id, isSelected, dueDate } = task;
+  const { title, id, isSelected } = task;
 
   return (
     <TaskItemContainer className='task-container'>
@@ -21,7 +21,6 @@ const TaskItem = (task) => {
           />
           <span className='task-title'>{title}</span>
         </div>
-        {/* <p className='task-title'>{dueDate.getMonth() + 1}</p> */}
         <div className='buttons'>
           <button
             onClick={() => setIsEditing(!isEditing)}
@@ -48,7 +47,6 @@ const TaskItem = (task) => {
 const TaskItemContainer = styled.div`
   border: 1px solid var(--clr-black);
   border-radius: var(--radius);
-  // padding: 0.8rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   .task-editing {
@@ -58,6 +56,13 @@ const TaskItemContainer = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    @media (max-width: 500px) {
+      padding: 0.5rem;
+      flex-direction: column;
+      .left-task-item {
+        margin-bottom: 1rem;
+      }
+    }
     .left-task-item {
       display: flex;
       align-items: center;

@@ -39,8 +39,8 @@ Basic features:
 - select tasks
 - remove selected tasks
 
-Next Phase updates:
+## Phase 2:
 
-- form validtion with formik and yup
-- styles - responsive
+- form validtion with react-hook form
+- styles
 - refactor

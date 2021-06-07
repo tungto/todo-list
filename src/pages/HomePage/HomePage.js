@@ -20,21 +20,26 @@ const HomePage = () => {
     );
   }
   return (
-    <wrapper>
+    <Wrapper>
       <div className='home-page section-center'>
         <Header />
-        <h3>Home</h3>
+        <h3>To Do List</h3>
         <SearchBar />
         <TaskList />
         {selectedItems > 0 && <BuldAction />}
       </div>
-    </wrapper>
+    </Wrapper>
   );
 };
 
-const wrapper = styled.div`
+const Wrapper = styled.div`
   .home-page {
-    padding: 3rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    @media (max-width: 800px) {
+      padding-right: 0rem;
+      padding-left: 0rem;
+    }
   }
 `;
 

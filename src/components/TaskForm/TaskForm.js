@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { randomID } from '../../ultils/helpers';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import { BsCalendar } from 'react-icons/bs';
 
 const initialState = {
   id: null,
@@ -17,23 +18,25 @@ const initialState = {
 
 const TaskForm = (props) => {
   const { addTask, updateTask } = useTaskContext();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
 
   const [state, setstate] = useState(initialState);
   const { isEditing } = props;
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
     if (isEditing) {
       setstate(props.task);
+      setValue('title', props.task.title);
     }
   }, [props.task, isEditing]);
 
-  const submitForm = (e) => {
-    // e.preventDefault();
+  const submitForm = () => {
+    console.log('check');
     if (isEditing) {
       updateTask(state);
       props.setIsEditing(false);
@@ -52,13 +55,11 @@ const TaskForm = (props) => {
           placeholder='Add new task'
           className='input-title'
           name='title'
-          value={title}
-          {...register('message', {
-            required: 'Required',
-          })}
+          defaultValue={title}
+          {...register('title', { required: true })}
           onChange={(e) => setstate({ ...state, title: e.target.value })}
         />
-        {errors.message && errors.message.message}
+        {errors.title && <p className='error-msg'>This field is required</p>}
         <div className='description form-section field'>
           <label htmlFor='description'>description</label>
           <textarea
@@ -74,12 +75,15 @@ const TaskForm = (props) => {
         <div className='other-infos form-section'>
           <div className='due-date field'>
             <label htmlFor='date'>Due Date</label>
-            <DatePicker
-              selected={Date.parse(dueDate)}
-              onChange={(date) => setstate({ ...state, dueDate: date })}
-              dateFormat='d MMMM yyyy'
-              minDate={new Date()}
-            />
+            <div className='date-bar'>
+              <DatePicker
+                selected={Date.parse(dueDate)}
+                onChange={(date) => setstate({ ...state, dueDate: date })}
+                dateFormat='d MMMM yyyy'
+                minDate={new Date()}
+              />
+              <BsCalendar />
+            </div>
           </div>
           <div className='priority field'>
             <label htmlFor='priority'>priority</label>
@@ -109,7 +113,6 @@ const FormContainer = styled.div`
       padding: 10px;
       width: 80%;
       border-radius: var(--radius);
-      font-size: 1rem;
     }
     .field {
       display: flex;
@@ -118,6 +121,7 @@ const FormContainer = styled.div`
     .description {
       textarea {
         height: 125px;
+        padding: 0.5rem;
       }
     }
 
@@ -143,6 +147,16 @@ const FormContainer = styled.div`
         width: 100%;
         padding: 0.5rem;
       }
+      .date-bar {
+        display: flex;
+        position: relative;
+        svg {
+          width: 34px;
+          height: 34px;
+          position: absolute;
+          right: 6px;
+        }
+      }
     }
     .btn-add {
       background: var(--clr-red-dark);
@@ -150,6 +164,19 @@ const FormContainer = styled.div`
       width: 6rem;
       :hover {
         background: var(--clr-red-light);
+      }
+    }
+    .error-msg {
+      text-align: left;
+      width: 80%;
+      color: var(--clr-red-dark);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 800px) {
+      padding: 1rem 0 1rem 0;
+      .btn-add {
+        margin-top: 1rem;
       }
     }
   }

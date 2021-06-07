@@ -4,7 +4,7 @@ import TaskItem from '../TaskItem/TaskItem';
 import styled from 'styled-components';
 const TaskList = () => {
   const { filtered_tasks } = useTaskContext();
-  console.log(filtered_tasks);
+  // console.log(filtered_tasks);
   return (
     <TaskListContainer>
       {filtered_tasks.map((task, index) => {

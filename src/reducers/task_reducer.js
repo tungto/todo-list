@@ -99,7 +99,7 @@ const task_reducer = (state, action) => {
         return new Date(a.dueDate) - new Date(b.dueDate);
       });
     }
-    console.log('sorted taks', sortedTasks);
+    // console.log('sorted taks', sortedTasks);
 
     return {
       ...state,
