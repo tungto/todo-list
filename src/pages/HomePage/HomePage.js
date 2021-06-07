@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TaskList from '../../components/TaskList/TaskList';
 import { useTaskContext } from '../../context/task_context';
+import styled from 'styled-components';
 
 const HomePage = () => {
   const { tasks, selectedItems } = useTaskContext();
@@ -19,14 +20,22 @@ const HomePage = () => {
     );
   }
   return (
-    <div className='search-bar-container'>
-      <Header />
-      <h1>Home</h1>
-      <SearchBar />
-      <TaskList />
-      {selectedItems > 0 && <BuldAction />}
-    </div>
+    <wrapper>
+      <div className='home-page section-center'>
+        <Header />
+        <h3>Home</h3>
+        <SearchBar />
+        <TaskList />
+        {selectedItems > 0 && <BuldAction />}
+      </div>
+    </wrapper>
   );
 };
+
+const wrapper = styled.div`
+  .home-page {
+    padding: 3rem;
+  }
+`;
 
 export default HomePage;
