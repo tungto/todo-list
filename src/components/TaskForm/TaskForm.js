@@ -150,11 +150,14 @@ const FormContainer = styled.div`
       .date-bar {
         display: flex;
         position: relative;
+        .react-datepicker-wrapper {
+          width: 100%;
+        }
         svg {
           width: 34px;
           height: 34px;
           position: absolute;
-          right: 6px;
+          right: 0px;
         }
       }
     }

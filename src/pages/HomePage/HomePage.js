@@ -11,12 +11,12 @@ const HomePage = () => {
   const { tasks, selectedItems } = useTaskContext();
   if (!tasks || tasks.length < 1) {
     return (
-      <div>
+      <Wrapper>
         <h1>there is no tasks</h1>
-        <Link to='/add' exact='true'>
+        <Link to='/add' exact='true' className='btn btn-fill'>
           fill it
         </Link>
-      </div>
+      </Wrapper>
     );
   }
   return (
@@ -36,6 +36,9 @@ const Wrapper = styled.div`
   .home-page {
     padding-right: 3rem;
     padding-left: 3rem;
+    .btn-fill {
+      background: var(--clr-blue-dark);
+    }
     @media (max-width: 800px) {
       padding-right: 0rem;
       padding-left: 0rem;
