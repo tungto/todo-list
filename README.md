@@ -6,9 +6,6 @@
 
 ```
 src
-|** assets
-| |** images
-| |** styles (global styles)
 |
 |** components (shared components)
 | |** Header
@@ -16,9 +13,8 @@ src
 | |** TaskForm
 | |** TaskItem
 | |** TaskList
+| |** BuldAction
 |** context
-|** customed-fields
-|git
 |** reducers
 |** pages
 | |** HomePage
