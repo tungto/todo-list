@@ -13,7 +13,7 @@ const HomePage = () => {
       <Wrapper>
         <h1>there is no tasks</h1>
         <Link to='/add' exact='true' className='btn btn-fill'>
-          fill it
+          Add Task
         </Link>
       </Wrapper>
     );

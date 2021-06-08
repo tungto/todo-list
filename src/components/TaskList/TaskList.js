@@ -14,6 +14,7 @@ const TaskList = () => {
       {filtered_tasks.map((task, index) => {
         return <TaskItem key={index} {...task} />;
       })}
+
       {selectedItems > 0 && <BuldAction />}
     </TaskListContainer>
   );

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const BuldAction = (task) => {
   const { removeSelectedTasks } = useTaskContext();
-
   return (
     <Wrapper>
       <div className='buld-action-container'>

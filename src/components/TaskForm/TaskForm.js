@@ -19,7 +19,6 @@ const initialState = {
 
 const TaskForm = (props) => {
   const { addTask, updateTask } = useTaskContext();
-
   const [state, setstate] = useState(initialState);
   const { isEditing } = props;
   const {
@@ -37,7 +36,6 @@ const TaskForm = (props) => {
   }, [props.task, isEditing, setValue]);
 
   const submitForm = () => {
-    // console.log('check');
     if (isEditing) {
       updateTask(state);
       props.setIsEditing(false);
@@ -61,6 +59,7 @@ const TaskForm = (props) => {
           onChange={(e) => setstate({ ...state, title: e.target.value })}
         />
         {errors.title && <p className='error-msg'>This field is required</p>}
+
         <div className='description form-section field'>
           <label htmlFor='description'>description</label>
           <textarea

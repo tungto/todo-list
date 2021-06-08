@@ -1,6 +1,4 @@
 export const LOAD_TASKS = 'LOAD_TASKS';
-export const OPEN_SIDEBAR = 'OPEN_SIDEBAR';
-export const CLOSE_SIDEBAR = 'CLOSE_SIDEBAR';
 export const ADD_TASK = 'ADD_TASK';
 export const REMOVE_TASK = 'REMOVE_TASK';
 export const UPDATE_TASK = 'UPDATE_TASK';
@@ -8,6 +6,5 @@ export const EDIT_TASK = 'EDIT_TASK';
 export const SELECT_TASK = 'SELECT_TASK';
 export const SORT_TASKS = 'SORT_TASKS';
 export const REMOVE_SELECTED_TASKS = 'REMOVE_SELECTED_TASKS';
-export const SHOW_BUILD_ACTION = 'SHOW_BUILD_ACTION';
 export const FILTER_TASKS = 'FILTER_TASKS';
 export const UPDATE_FILTERS = 'UPDATE_FILTERS';

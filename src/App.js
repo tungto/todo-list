@@ -8,11 +8,7 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
-        <Route
-          path='/'
-          component={({ match }) => <HomePage match={match} />}
-          exact={true}
-        />
+        <Route path='/' component={() => <HomePage />} exact={true} />
         <Route
           path='/add'
           component={({ match, history }) => (

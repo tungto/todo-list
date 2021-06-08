@@ -57,7 +57,6 @@ const TaskProvider = ({ children }) => {
   };
 
   const updateTask = (task) => {
-    // console.log('update task', task);
     dispatch({ type: Types.UPDATE_TASK, payload: task });
     updateLocalStorage('tasks', state.tasks);
   };
@@ -77,7 +76,6 @@ const TaskProvider = ({ children }) => {
   };
 
   const updateFilters = (e) => {
-    // console.log(e);
     const name = e.target.name;
     const value = e.target.value;
     dispatch({ type: Types.UPDATE_FILTERS, payload: { name, value } });
